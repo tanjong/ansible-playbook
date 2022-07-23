@@ -48,13 +48,13 @@ variable "disable_bgp_route_propagation" {
   default = "false"
 }
 
-variable "server_subnet" {
+variable "app" {
   type    = string
-  default = "server_subnet"
+  default = "app"
 }
 
 
-variable "address_prefixes_server" {
+variable "address_prefixes" {
   type    = list(string)
   default = ["10.0.1.0/24"]
 }

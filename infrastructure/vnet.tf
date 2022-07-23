@@ -15,12 +15,15 @@ resource "azurerm_virtual_network" "devlab_vnet" {
   resource_group_name = azurerm_resource_group.devlab_general_network_rg.name
   address_space       = var.address_space
 
-  subnet {
-    name           = "server"
-    address_prefix = "10.0.1.0/24"
-  }
-
   tags = local.common_tags
+}
+
+
+resource "azurerm_subnet" "app" {
+  name                 = var.app
+  resource_group_name  = azurerm_resource_group.devlab_general_network_rg.name
+  virtual_network_name = azurerm_virtual_network.devlab_vnet.name
+  address_prefixes     = var.address_prefixes
 }
 
 resource "azurerm_route_table" "devlab_rt" {
@@ -39,19 +42,12 @@ resource "azurerm_route_table" "devlab_rt" {
 }
 
 
-resource "azurerm_subnet" "server_subnet" {
-  name                 = var.server_subnet
-  resource_group_name  = azurerm_resource_group.devlab_general_network_rg.name
-  virtual_network_name = azurerm_virtual_network.devlab_vnet.name
-  address_prefixes     = var.address_prefixes_server
-}
-
 resource "azurerm_subnet_route_table_association" "devlab_rt_server_assoc" {
-  subnet_id      = azurerm_subnet.server_subnet.id
+  subnet_id      = azurerm_subnet.app.id
   route_table_id = azurerm_route_table.devlab_rt.id
 }
 
-resource "azurerm_subnet_network_security_group_association" "devlab_nsg_server_subnet_assoc" {
-  subnet_id                 = azurerm_subnet.server_subnet.id
+resource "azurerm_subnet_network_security_group_association" "devlab_nsg_app_assoc" {
+  subnet_id                 = azurerm_subnet.app.id
   network_security_group_id = azurerm_network_security_group.devlab_nsg.id
 }
