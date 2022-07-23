@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "devlab_linuxvm_rg" {
   location = local.buildregion
 }
 
-resource "azurerm_subnet" "app_subnet-subnet" {
+resource "azurerm_subnet" "app_subnet" {
   name                 = "internal"
   resource_group_name  = azurerm_resource_group.devlab_general_network_rg.name
   virtual_network_name = azurerm_virtual_network.devlab_vnet.name
