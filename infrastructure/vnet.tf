@@ -15,6 +15,12 @@ resource "azurerm_virtual_network" "devlab_vnet" {
   resource_group_name = azurerm_resource_group.devlab_general_network_rg.name
   address_space       = var.address_space
 
+ subnet {
+    name           = "app_subnet"
+    address_prefix = "10.0.1.0/24"
+    security_group = azurerm_network_security_group.devlab_nsg.id
+  }
+
   tags = local.common_tags
 }
 
@@ -32,6 +38,7 @@ resource "azurerm_route_table" "devlab_rt" {
 
   tags = local.common_tags
 }
+
 
 resource "azurerm_subnet_route_table_association" "devlab_rt_appl_assoc" {
   subnet_id      = azurerm_subnet.app_subnet.id
