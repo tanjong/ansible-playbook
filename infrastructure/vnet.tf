@@ -17,7 +17,7 @@ resource "azurerm_virtual_network" "devlab_vnet" {
 
   /* subnet = [] */
 
-  tags = local.network_tags
+  tags = local.common_tags
 }
 
 resource "azurerm_route_table" "devlab_rt" {
