@@ -56,3 +56,4 @@ resource "azurerm_subnet_network_security_group_association" "devlab_nsg_app_sub
   subnet_id                 = azurerm_subnet.app_subnet.id
   network_security_group_id = azurerm_network_security_group.devlab_nsg.id
 }
+
