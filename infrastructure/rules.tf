@@ -12,3 +12,5 @@ resource "azurerm_network_security_rule" "Linux" {
   resource_group_name         = azurerm_resource_group.devlab_general_network_rg.name
   network_security_group_name = azurerm_network_security_group.devlab_nsg.name
 }
+
+
