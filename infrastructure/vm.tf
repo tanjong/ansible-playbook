@@ -23,7 +23,7 @@ resource "azurerm_public_ip" "linux_pip" {
   resource_group_name = azurerm_resource_group.devlab_linuxvm_rg.name
   allocation_method   = "Static"
 
-  tags = local.server_tags
+  tags = local.common_tags
 }
 
 
