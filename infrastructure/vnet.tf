@@ -34,12 +34,12 @@ resource "azurerm_route_table" "devlab_rt" {
 }
 
 
-resource "azurerm_subnet" "app_subnet" {
-  name                 = var.app_subnet
-  resource_group_name  = azurerm_resource_group.devlab_general_network_rg.name
-  virtual_network_name = azurerm_virtual_network.devlab_vnet.name
-  address_prefixes     = var.address_prefixes_app
-}
+# resource "azurerm_subnet" "app_subnet" {
+#   name                 = var.app_subnet
+#   resource_group_name  = azurerm_resource_group.devlab_general_network_rg.name
+#   virtual_network_name = azurerm_virtual_network.devlab_vnet.name
+#   address_prefixes     = var.address_prefixes_app
+# }
 
 resource "azurerm_subnet_route_table_association" "devlab_rt_appl_assoc" {
   subnet_id      = azurerm_subnet.app_subnet.id
