@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "devlab_linuxvm_rg" {
 }
 
 resource "azurerm_subnet" "app_subnet" {
-  name                 = "internal"
+  name                 = "app_subnet"
   resource_group_name  = azurerm_resource_group.devlab_general_network_rg.name
   virtual_network_name = azurerm_virtual_network.devlab_vnet.name
   address_prefixes     = ["10.0.1.0/24"]
