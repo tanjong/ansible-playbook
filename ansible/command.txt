@@ -1,0 +1,1 @@
+ansible-playbook nginx.yml -i inventory.yml --user adminuser --private-key /home/devopslab/.ssh/ansiblekey -vv
