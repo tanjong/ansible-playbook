@@ -3,8 +3,8 @@ resource "azurerm_resource_group" "devlab_linuxvm_rg" {
   location = local.buildregion
 }
 
-resource "azurerm_subnet" "app_subnet" {
-  name                 = "app_subnet"
+resource "azurerm_subnet" "application_subnet" {
+  name                 = "application_subnet"
   resource_group_name  = azurerm_resource_group.devlab_general_network_rg.name
   virtual_network_name = azurerm_virtual_network.devlab_vnet.name
   address_prefixes     = ["10.0.1.0/24"]
@@ -17,7 +17,7 @@ resource "azurerm_network_interface" "linux_nic" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.app_subnet.id
+    subnet_id                     = azurerm_subnet.application_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.linux_pip.id
   }
