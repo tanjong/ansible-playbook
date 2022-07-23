@@ -46,12 +46,12 @@ resource "azurerm_route_table" "devlab_rt" {
 #   address_prefixes     = var.address_prefixes_server
 # }
 
-# resource "azurerm_subnet_route_table_association" "devlab_rt_server_assoc" {
-#   subnet_id      = azurerm_subnet.server_subnet.id
-#   route_table_id = azurerm_route_table.devlab_rt.id
-# }
+resource "azurerm_subnet_route_table_association" "devlab_rt_server_assoc" {
+  subnet_id      = azurerm_subnet.server.id
+  route_table_id = azurerm_route_table.devlab_rt.id
+}
 
-# resource "azurerm_subnet_network_security_group_association" "devlab_nsg_server_subnet_assoc" {
-#   subnet_id                 = azurerm_subnet.server_subnet.id
-#   network_security_group_id = azurerm_network_security_group.devlab_nsg.id
-# }
+resource "azurerm_subnet_network_security_group_association" "devlab_nsg_server_subnet_assoc" {
+  subnet_id                 = azurerm_subnet.server.id
+  network_security_group_id = azurerm_network_security_group.devlab_nsg.id
+}
