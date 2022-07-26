@@ -37,6 +37,13 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
     azurerm_network_interface.linux_nic.id,
   ]
 
+  # connection {
+  #   type     = "ssh"
+  #   user     = var.user
+  #   private_key = file(var.path_privatekey)
+  #   host     = "${var.host}"
+  # }
+
   admin_ssh_key {
     username   = "adminuser"
     public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDHUKVp10Js6E+7Co1jpvAzVmwZzE7BqPzRBNtKLBFerigfzVWPHihDRvXhlNhYcbMDidAPjUjh7oZJZb3UvWVMouMX4X+DZAyPo5ESS2csip4OQeQODEE4fDSeDmPg7mvUhfw0RxM7knLzxe8Crvxl/61gn7jGql3ATFbrpTNlZcir9+rgwi40VIYikjvnQuO/JHyFjZvsMXEYMqvclCw5d/aGvmjr35xdhhYBN5bmCzgcBwkyFSdXaKz67VJFX0Nbr8u5Xe/mhD8oxsj1DcZhbI8VWDwAusVWfWaJasPg91bE1bv7Ef2RL9VGiZwIgVdPA7Sp9g18OG/lPuUU/+yglaSw/BGnTHN72EwmmJlrQ+vv5zPkrTwKYCGCmOZSbKjVtsu4TZL2wa6L/2zKTY13SctE0d0P0XH7IikbtVdCgUtqd5EbcLVM7/UdIPsqi0XIOPmIpNjkQr1di1dzqb4etEKq/cqbGfmoK9EqNB9IBCyTrHGdgvU/iC9VXUbAUPE= njiet@LAPTOP-KAMNFCIU"
@@ -50,7 +57,7 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = "16.04-LTS"
+    sku       = "20.04-LTS"
     version   = "latest"
   }
 }
