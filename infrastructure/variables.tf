@@ -50,7 +50,7 @@ variable "disable_bgp_route_propagation" {
 
 variable "application_subnet" {
   type    = string
-  default = "app"
+  default = "application_subnet"
 }
 
 
@@ -97,4 +97,14 @@ variable "source_address_prefix" {
 variable "destination_address_prefix" {
   type    = string
   default = "VirtualNetwork"
+}
+
+variable "path_privatekey" {
+  type = string
+  default = "ansiblekey"
+}
+
+variable "user" {
+  type = string
+  default = "root"
 }
