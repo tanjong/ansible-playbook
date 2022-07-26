@@ -50,7 +50,7 @@ variable "disable_bgp_route_propagation" {
 
 variable "application_subnet" {
   type    = string
-  default = "application_subnet"
+  default = "app"
 }
 
 
