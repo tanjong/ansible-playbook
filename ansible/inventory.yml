@@ -3,5 +3,5 @@ all:
   children:
     server:
       hosts:
-        dev:
+        dev: 
           ansible_host: 20.29.123.0
