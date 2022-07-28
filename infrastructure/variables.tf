@@ -99,12 +99,12 @@ variable "destination_address_prefix" {
   default = "VirtualNetwork"
 }
 
-# variable "path_privatekey" {
-#   type = string
-#   default = "ansiblekey"
-# }
+variable "path_privatekey" {
+  type = string
+  default = "/home/devlab/.ssh/myansiblekeys"
+}
 
-# variable "user" {
-#   type = string
-#   default = "root"
-# }
+variable "user" {
+  type = string
+  default = "adminuser"
+}
