@@ -1,5 +1,5 @@
 terraform.tfstate
 terraform.tfstate.backup
 *.terraform*
-ansiblekey
-ansiblekey.pub
+myansiblekeys
+myansiblekeys.pub
