@@ -100,11 +100,11 @@ variable "destination_address_prefix" {
 }
 
 variable "path_privatekey" {
-  type = string
+  type    = string
   default = "/home/devlab/.ssh/myansiblekeys"
 }
 
 variable "user" {
-  type = string
+  type    = string
   default = "adminuser"
 }

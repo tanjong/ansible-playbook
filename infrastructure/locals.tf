@@ -6,6 +6,6 @@ locals {
     environment = "Development"
     ManagedWith = "terraform"
   }
-  main                    = "devlab"
-  buildregion             = lower("centralus")
+  main        = "devlab"
+  buildregion = lower("centralus")
 }
