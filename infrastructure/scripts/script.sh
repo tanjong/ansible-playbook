@@ -1,4 +1,4 @@
-#!/bin/bashcd 
+#!/bin/bash 
 exec > >(tee /var/log/nginx.log) 2>&1
 
 path="{path_privatekey}"
