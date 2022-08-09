@@ -1,14 +1,14 @@
----
-- hosts: dev
-  become: yes
+# ---
+# - hosts: dev
+#   become: yes
 
-  tasks:
-    - name: update package
-      apt:  update_cache=yes state=latest
+#   tasks:
+#     - name: update package
+#       apt:  update_cache=yes state=latest
     
-    - name: install nginx
-      apt:  name=nginx state=latest
+#     - name: install nginx
+#       apt:  name=nginx state=latest
 
-  handlers:
-    - name: start nginx
-      service: name=nginx state=started
+#   handlers:
+#     - name: start nginx
+#       service: name=nginx state=started

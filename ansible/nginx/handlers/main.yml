@@ -1,0 +1,4 @@
+---
+# handlers file for nginx
+  - name: start "{{ app_name }}"
+    service: name="{{ app_name }}" state=started
