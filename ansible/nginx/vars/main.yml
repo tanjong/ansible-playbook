@@ -1,0 +1,5 @@
+---
+# vars file for nginx
+app_name: nginx
+scr_file_path: /mnt/c/Users/njiet/OneDrive/Documents/GithubDev/ansible-playbook/ansible/index.html
+dest_file_path: /var/www/html

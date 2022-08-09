@@ -4,4 +4,4 @@ all:
     server:
       hosts:
         dev: 
-          ansible_host: 20.29.123.0
+          ansible_host: 20.9.72.184
