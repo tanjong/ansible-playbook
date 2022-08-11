@@ -1,0 +1,35 @@
+---
+- hosts: all
+  become: 'yes'
+  gather_facts: true
+
+  tasks:
+
+   - name:  import the public GPG key for the latest stable version
+     apt_key:
+       url: https://www.mongodb.org/static/pgp/server-6.0.asc
+       state: present
+
+   - name: command to set up the repository
+     apt_repository: 
+       repo: deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/6.0 multiverse
+       state: present
+
+   - name: update package
+     apt: 
+      update_cache: "yes"
+      state: latest
+
+   - name: install mongodb-org
+     apt: name=mongodb-org state=latest
+
+   - name: enable mongodb
+     systemd:
+         name: mongod 
+         enabled: yes
+         state: started
+
+  handlers:
+    - name: restart mongodb-org
+      service: name=mongodb-org state=restarted
+   
