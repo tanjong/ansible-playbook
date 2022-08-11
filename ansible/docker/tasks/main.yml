@@ -13,11 +13,13 @@
 
 - name: Add Docker's official key
   apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
-    state: latest
+    url: "{{ docker_key }}"
+    state: present
 
 - name: command to set up the repository
-  apt_repository: https://download.docker.com/linux/ubuntu bionic stable  
+  apt_repository: 
+    repo: "{{ docker_repository }}" 
+    state: present
   
 - name: update package
   apt: update_cache=yes state=latest
