@@ -1,0 +1,17 @@
+---
+- hosts: dev
+  become: 'yes'
+  gather_facts: true
+  tasks:
+    - name: Run a shell command and register its output as a variable
+      shell: ls /tmp/test2.txt
+      register: result
+      ignore_errors: true
+
+    - name: Run a shell command using output of the previous task
+      shell: touch /tmp/test2.txt
+      when: result.rc != 0
+
+    - name: remove file
+      shell: cd /tmp/ && rm test2.txt
+      when: result.rc != 0

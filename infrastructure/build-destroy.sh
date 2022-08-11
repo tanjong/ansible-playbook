@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# terraform apply --auto-approve
+terraform apply --auto-approve
 
 # sleep 40
 
-terraform destroy --auto-approve
+# terraform destroy --auto-approve
